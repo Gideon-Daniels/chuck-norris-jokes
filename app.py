@@ -10,7 +10,9 @@ def get_chuck_norris_jokes():
     response = requests.get(api_url).json()
     jokes = response['value']
     icon = f"{response['icon_url']}"
-    return render_template("index.html", jokes=jokes, icon=icon)
+    joke_id = response['id']
+    joke_updated = response['updated_at']
+    return response
 
 
 if __name__ == "__main__":
